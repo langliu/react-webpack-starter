@@ -1,5 +1,6 @@
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
@@ -78,6 +79,9 @@ const config = (env, argv) => {
         '@': resolve(__dirname, 'src'),
       },
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    },
+    optimization: {
+      minimizer: [new CssMinimizerPlugin()],
     },
   }
 }
