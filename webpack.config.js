@@ -7,8 +7,6 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const config = (env, argv) => {
-  const mode = argv.mode || 'development'
-  console.log('mode', env, argv)
   /** 是否为开发模式 */
   const isDev = argv.mode === 'development'
   return {
@@ -51,6 +49,7 @@ const config = (env, argv) => {
                 esModule: false,
               },
             },
+            'postcss-loader',
           ],
         },
         {
